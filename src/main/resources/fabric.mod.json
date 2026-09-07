@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "elytrasignal",
+  "version": "${version}",
+  "name": "ElytraSignal",
+  "description": "Fires a signal (Fabric event / keybinding pulse / optional chat message) when equipped elytra durability drops below a threshold.",
+  "authors": ["you"],
+  "contact": {},
+  "license": "CC0-1.0",
+  "icon": "",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.example.elytrasignal.ElytraSignalMod"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
