@@ -7,15 +7,12 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-	// Add repositories here if needed
 }
 
 loom {
-	splitEnvironmentSourceSets()
 	mods {
 		"elytrasignal" {
 			sourceSet sourceSets.main
-			sourceSet sourceSets.client
 		}
 	}
 }
@@ -48,10 +45,4 @@ java {
 	withSourcesJar()
 	sourceCompatibility = JavaVersion.VERSION_21
 	targetCompatibility = JavaVersion.VERSION_21
-}
-
-jar {
-	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}" }
-	}
 }
