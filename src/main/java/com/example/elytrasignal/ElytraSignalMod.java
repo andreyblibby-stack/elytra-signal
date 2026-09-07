@@ -2,13 +2,14 @@ package com.example.elytrasignal;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,8 @@ import org.slf4j.LoggerFactory;
 public class ElytraSignalMod implements ClientModInitializer {
     public static final String MOD_ID = "elytrasignal";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    private static final KeyBinding.Category CATEGORY = KeyBinding.Category.create(Identifier.of(MOD_ID, "main"));
 
     private static ElytraSignalConfig config;
 
@@ -39,7 +42,7 @@ public class ElytraSignalMod implements ClientModInitializer {
                 "key.elytrasignal.low",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_UNKNOWN,
-                "category.elytrasignal"
+                CATEGORY
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(this::onTick);
